@@ -1,31 +1,122 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime configuration
+# Docs: https://upptime.js.org/docs/configuration
+
+owner: formfollowsyou
+repo: uptime
+
+# Secrets allowlist (GitHub repo secrets: Settings -> Secrets and variables -> Actions)
+secrets:
+  - NOTIFICATION_SLACK
+  - NOTIFICATION_SLACK_WEBHOOK_URL
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  # ---- HTTP/HTTPS (Standard: 200-299 erwartet) ----
+  - name: FFY Docker Registry
+    url: https://dockerregistry-web.beta.formfollowsyou.com/
+  - name: Thermal Comfort
+    url: https://comfort-analysis.beta.formfollowsyou.com/health
+  - name: Thermal Comfort Prod
+    url: https://comfort-analysis.production.formfollowsyou.com/health
+  - name: Buildplace
+    url: https://buildplace.io/api/health
+    maxResponseTime: 10000
+  - name: Buildplace Dev
+    url: https://devweb.beta.formfollowsyou.com/api/health
+    maxResponseTime: 16000
+  - name: Buildplace Hal-Plan
+    url: https://web.staging.formfollowsyou.com/api/health
+    maxResponseTime: 16000
+  - name: Geodata Endpunkt Dev
+    url: https://geodata-dev.serve.buildplace.io/health
+  - name: Geodata Endpunkt
+    url: https://geodata.serve.buildplace.io/health
+  - name: Geoserver
+    url: https://geoserver.serve.buildplace.io
+  - name: RocketChat
+    url: https://rocketchat.serve.buildplace.io/
+  - name: Grafana
+    url: https://grafana.mgmt.iac.buildplace.io/api/health
+  # ---- XPlan Manager (dev / hal / prod) ----
+  - name: XPlan Manager Web (dev)
+    url: https://xplan.dev.iac.formfollowsyou.com/xplan-manager-web/
+  - name: XPlan Manager API (dev)
+    url: https://xplan.dev.iac.formfollowsyou.com/xplan-manager-api/swagger-ui/index.html
+  - name: XPlan Services (dev)
+    url: https://xplan.dev.iac.formfollowsyou.com/xplan-wms/
+  - name: XPlan Manager API (hal)
+    url: https://xplan.hal.iac.buildplace.io/xplan-manager-api/swagger-ui/index.html
+  - name: XPlan Services (hal)
+    url: https://xplan.hal.iac.buildplace.io/xplan-wms/
+  - name: XPlan Manager Web (hal)
+    url: https://xplan.hal.iac.buildplace.io/xplan-manager-web/
+  - name: XPlan Manager API (prod)
+    url: https://xplan.prod.iac.buildplace.io/xplan-manager-api/swagger-ui/index.html
+  - name: XPlan Manager Web (prod)
+    url: https://xplan.prod.iac.buildplace.io/xplan-manager-web/
+  - name: XPlan Services (prod)
+    url: https://xplan.prod.iac.buildplace.io/xplan-wms/
+  # ---- Storage Proxy & Buckets (erwartet 403 + Keyword im Body) ----
+  - name: Storage Proxy (dev)
+    url: https://storage.dev.iac.formfollowsyou.com/buildplace-dev/health
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "nbg1"
+  - name: Storage Proxy (hal)
+    url: https://storage.hal.iac.buildplace.io/buildplace-hal-backup/health
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "fsn1"
+  - name: Storage Proxy (prod)
+    url: https://storage.prod.iac.buildplace.io/buildplace-prod-backup/health
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "fsn1"
+  - name: Bucket Direct (dev)
+    url: https://nbg1.your-objectstorage.com/buildplace-dev
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "AccessDenied"
+  - name: Bucket Direct (hal)
+    url: https://nbg1.your-objectstorage.com/buildplace-hal
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "AccessDenied"
+  - name: Bucket Direct (prod)
+    url: https://nbg1.your-objectstorage.com/buildplace-prod
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "AccessDenied"
+  - name: Bucket Direct Backup (hal)
+    url: https://fsn1.your-objectstorage.com/buildplace-hal-backup
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "AccessDenied"
+  - name: Bucket Direct Backup (prod)
+    url: https://fsn1.your-objectstorage.com/buildplace-prod-backup
+    expectedStatusCodes: [403]
+    __dangerous__body_down_if_text_missing: "AccessDenied"
+  # ---- Load Balancer (TCP-Ping auf Port 443; Kuma nutzte ICMP) ----
+  - name: Load Balancer (dev)
+    check: tcp-ping
+    url: 162.55.153.18
+    port: 443
+  - name: Load Balancer (hal)
+    check: tcp-ping
+    url: 46.225.37.254
+    port: 443
+  - name: Load Balancer (prod)
+    check: tcp-ping
+    url: 162.55.154.43
+    port: 443
+  - name: Load Balancer (mgmt)
+    check: tcp-ping
+    url: 46.225.37.58
+    port: 443
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # Privates Repo: publish:true noetig, damit die Status-Page deployed wird.
+  # Sobald DNS fuer status.buildplace.io steht:  cname: status.buildplace.io  setzen und baseUrl entfernen.
+  publish: true
+  baseUrl: /uptime
+  name: Buildplace
+  logoUrl: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/upptime-icon.svg
+  introTitle: "**Buildplace** Status"
+  introMessage: Uptime-Monitoring powered by Upptime. Checks laufen extern über GitHub Actions.
   navbar:
     - title: Status
       href: /
     - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+      href: https://github.com/formfollowsyou/uptime
