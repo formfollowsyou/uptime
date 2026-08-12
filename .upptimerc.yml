@@ -29,6 +29,8 @@ sites:
     url: https://devweb.beta.formfollowsyou.com/
   - name: staging.formfollowsyou.com
     url: https://web.staging.formfollowsyou.com/
+  - name: Geodata (serve.buildplace.io)
+    url: https://geodata.serve.buildplace.io/health
 
 status-website:
   # Privates Repo: publish:true noetig, damit die Status-Page deployed wird.
