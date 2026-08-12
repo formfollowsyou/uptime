@@ -16,11 +16,9 @@ sites:
   - name: Kuma (Uptime Monitoring)
     url: https://uptime.beta.formfollowsyou.com/
   - name: beta.formfollowsyou.com
-    url: https://beta.formfollowsyou.com/
-    __dangerous__disable_verify_peer: true
+    url: https://devweb.beta.formfollowsyou.com/
   - name: staging.formfollowsyou.com
-    url: https://staging.formfollowsyou.com/
-    __dangerous__disable_verify_peer: true
+    url: https://web.staging.formfollowsyou.com/
 
 status-website:
   # Privates Repo: publish:true noetig, damit die Status-Page deployed wird.
