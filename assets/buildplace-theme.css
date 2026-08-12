@@ -1,0 +1,145 @@
+/* =====================================================================
+   Buildplace Theme – Upptime Status Page
+   ---------------------------------------------------------------------
+   Übernommen aus RW_NEW / buildplace.io:
+   - Navbar/Header gelb (#fff06b) mit Buildplace-Logo
+   - Text schwarz (#0a0a0a), Flächen weiß, Rahmen grau (#f1f0e8)
+   - Sekundärfarbe Orange (#ff6333)
+   - Schriften: IBM Plex Sans (Body) + IBM Plex Mono (Überschriften)
+   ===================================================================== */
+
+/* ---------- Fonts (self-hosted, aus RW_NEW @fontsource kopiert) ---------- */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/ibm-plex-sans-latin-300-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/ibm-plex-sans-latin-500-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/ibm-plex-sans-latin-700-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/ibm-plex-mono-latin-600-normal.woff2) format('woff2');
+}
+
+/* ---------- Farben (Upptime Theme-Variablen) ---------- */
+:root {
+  --body-background-color: #ffffff;
+  --body-text-color: #0a0a0a;
+  --card-background-color: #ffffff;
+  --card-border-color: #f1f0e8;
+  --nav-background-color: #fff06b;
+  --nav-border-bottom-color: #fff06b;
+  --nav-current-border-bottom-color: #0a0a0a;
+  --code-color: #ff6333;
+  --code-background-color: #f1f0e8;
+  --down-border-left-color: #e53935;
+  --down-background-color: #ffe9e6;
+  --down-color-color: #0a0a0a;
+  --degraded-border-left-color: #ff6333;
+  --degraded-color-color: #0a0a0a;
+  --up-border-left-color: #1ea056;
+  --up-color-color: #0a0a0a;
+  --tag-color: #ffffff;
+  --tag-up-background-color: #1ea056;
+  --tag-down-background-color: #e53935;
+  --tag-degraded-background-color: #ff6333;
+  --change-background-color: #ff6333;
+  --error-button-border-color: #0a0a0a;
+  --error-button-background-color: #0a0a0a;
+  --error-button-color: #ffffff;
+  --submit-button-border-color: #0a0a0a;
+  --submit-button-background-color: #0a0a0a;
+  --submit-button-color: #ffffff;
+  --graph-opacity: 1;
+  --graph-filter: none;
+}
+
+/* ---------- Grundschrift (IBM Plex Sans) ---------- */
+/* html body: höhere Spezifität, da global.css (Roboto) NACH dem Theme geladen wird */
+html body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+/* ---------- Überschriften (IBM Plex Mono) ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ---------- Navbar (gelb, sticky – wie buildplace.io Header) ---------- */
+nav {
+  background-color: var(--nav-background-color);
+  border-bottom: 1px solid #e0d248;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .logo {
+  font-weight: 600;
+}
+nav .logo img {
+  height: 2.4rem;
+  width: auto;
+  margin-right: 0;
+  border-radius: 0;
+}
+nav ul a {
+  color: #0a0a0a;
+  font-weight: 500;
+}
+nav ul a:hover {
+  color: #ff6333;
+}
+
+/* ---------- Karten & Feinschliff ---------- */
+article {
+  box-shadow: 0 1px 3px rgba(10, 10, 10, 0.06);
+}
+article h3 {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 500;
+}

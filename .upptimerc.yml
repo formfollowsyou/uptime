@@ -38,9 +38,13 @@ status-website:
   publish: true
   baseUrl: /uptime
   name: Buildplace
-  logoUrl: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/upptime-icon.svg
-  introTitle: "**Buildplace** Status"
-  introMessage: Uptime-Monitoring powered by Upptime. Checks laufen extern über GitHub Actions.
+  # ---- Buildplace-Styling (aus RW_NEW / buildplace.io übernommen) ----
+  # Assets liegen im Repo unter assets/ und werden via raw.githubusercontent.com geladen.
+  logoUrl: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/buildplace-logo.png
+  hideNavTitle: true
+  themeUrl: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/buildplace-theme.css
+  faviconSvg: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/buildplace-mark.svg
+  favicon: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/favicon-192.png
   navbar:
     - title: Status
       href: /
