@@ -32,9 +32,10 @@ sites:
   - name: Geodata (serve.buildplace.io)
     url: https://geodata.serve.buildplace.io/health
 
-# Farben der Response-Time-Diagramme (History-Seite, Chart.js)
+# Farben der Response-Time-Diagramme (History-Seite, Chart.js) –
+# abgestimmt auf die gefilterten PNG-Graphen der Startseite
 graphBackgroundColor: "#fff9c4"
-graphBorderColor: "#fff16b"
+graphBorderColor: "#f0d860"
 
 status-website:
   # Privates Repo: publish:true noetig, damit die Status-Page deployed wird.

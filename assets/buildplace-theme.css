@@ -164,7 +164,7 @@ article.graph::before {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center right;
-  filter: hue-rotate(-113deg) saturate(1.6);
+  filter: hue-rotate(-113deg) saturate(2) brightness(1.25);
   pointer-events: none;
 }
 article.graph > * {
