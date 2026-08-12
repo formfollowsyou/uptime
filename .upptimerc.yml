@@ -8,6 +8,16 @@ repo: uptime
 secrets:
   - NOTIFICATION_SLACK
   - NOTIFICATION_SLACK_WEBHOOK_URL
+  # Telegram-Notifications (Bot: ffyUpdate_bot, Gruppe: build.FormMonitoring)
+  # NOTIFICATION_TELEGRAM = "true", NOTIFICATION_TELEGRAM_BOT_KEY = Bot-Token,
+  # NOTIFICATION_TELEGRAM_CHAT_ID = Chat/Group-ID
+  - NOTIFICATION_TELEGRAM
+  - NOTIFICATION_TELEGRAM_BOT_KEY
+  - NOTIFICATION_TELEGRAM_CHAT_ID
+  # Optional: eigene Nachrichtentemplates (Platzhalter: $EMOJI, $SITE_NAME,
+  # $SITE_URL, $STATUS, $ISSUE_URL, $RESPONSE_CODE)
+  - NOTIFICATIONS_DOWN_MESSAGE
+  - NOTIFICATIONS_UP_MESSAGE
 
 sites:
   # ---- Haupt-Checks (rudimentär): Hauptseite, Kuma, Server ----
