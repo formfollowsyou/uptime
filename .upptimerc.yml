@@ -4,6 +4,10 @@
 owner: formfollowsyou
 repo: uptime
 
+# Check-Intervall des Uptime-Monitors (Cron-Expression, UTC)
+workflowSchedule:
+  uptime: "*/15 * * * *"
+
 # Secrets allowlist (GitHub repo secrets: Settings -> Secrets and variables -> Actions)
 secrets:
   - NOTIFICATION_SLACK
