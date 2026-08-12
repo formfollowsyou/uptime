@@ -143,3 +143,31 @@ article h3 {
   font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-weight: 500;
 }
+
+/* ---------- Startseiten-Graphen (PNG) in Buildplace-Gelb ----------
+   Die von @upptime/graphs generierten PNGs sind teal (#89e0cf/#1abc9c).
+   Gefiltert wird NUR das Hintergrundbild (Pseudo-Element) – Text und
+   Status-Ränder der Karte bleiben unverändert. */
+article.graph {
+  position: relative;
+  overflow: hidden;
+  background-image: none !important; /* Original (teal) verstecken */
+}
+article.graph::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: var(--background);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  filter: hue-rotate(-113deg) saturate(1.6);
+  pointer-events: none;
+}
+article.graph > * {
+  position: relative;
+  z-index: 1;
+}

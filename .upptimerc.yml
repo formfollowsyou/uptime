@@ -32,6 +32,10 @@ sites:
   - name: Geodata (serve.buildplace.io)
     url: https://geodata.serve.buildplace.io/health
 
+# Farben der Response-Time-Diagramme (History-Seite, Chart.js)
+graphBackgroundColor: "#fff9c4"
+graphBorderColor: "#fff16b"
+
 status-website:
   # Privates Repo: publish:true noetig, damit die Status-Page deployed wird.
   # Sobald DNS fuer status.buildplace.io steht:  cname: status.buildplace.io  setzen und baseUrl entfernen.
@@ -39,12 +43,14 @@ status-website:
   baseUrl: /uptime
   name: Buildplace
   # ---- Buildplace-Styling (aus RW_NEW / buildplace.io übernommen) ----
-  # Assets liegen im Repo unter assets/ und werden via raw.githubusercontent.com geladen.
-  logoUrl: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/buildplace-logo.png
+  # Assets werden vom Static-Site-Build auf GitHub Pages deployt und
+  # von dort geladen (raw.githubusercontent liefert CSS als text/plain,
+  # das der Browser mit nosniff blockt – daher Pages-URLs verwenden).
+  logoUrl: https://formfollowsyou.github.io/uptime/buildplace-logo.png
   hideNavTitle: true
-  themeUrl: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/buildplace-theme.css
-  faviconSvg: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/buildplace-mark.svg
-  favicon: https://raw.githubusercontent.com/formfollowsyou/uptime/master/assets/favicon-192.png
+  themeUrl: https://formfollowsyou.github.io/uptime/buildplace-theme.css
+  faviconSvg: https://formfollowsyou.github.io/uptime/buildplace-mark.svg
+  favicon: https://formfollowsyou.github.io/uptime/favicon-192.png
   navbar:
     - title: Status
       href: /
